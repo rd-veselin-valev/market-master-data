@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  market-master-data:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/market-master-data
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_APPLICATION_NAME: market-master-data
+      SERVER_PORT: 8080
+    networks:
+      - backend
+
+  db:
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.3
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8081:8080"
+    networks:
+      - backend
+
+volumes:
+  pgdata:
+
+networks:
+  backend:
+    name: backend
