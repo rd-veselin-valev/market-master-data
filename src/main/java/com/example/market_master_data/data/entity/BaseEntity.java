@@ -1,4 +1,4 @@
-package com.example.market_master_data.data.entity.market;
+package com.example.market_master_data.data.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -1,6 +1,6 @@
 package com.example.market_master_data.data.repository;
 
-import com.example.market_master_data.data.entity.market.Market;
+import com.example.market_master_data.data.entity.Market;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

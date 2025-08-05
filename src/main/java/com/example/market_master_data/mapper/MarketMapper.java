@@ -1,6 +1,6 @@
 package com.example.market_master_data.mapper;
 
-import com.example.market_master_data.data.entity.market.Market;
+import com.example.market_master_data.data.entity.Market;
 import com.example.market_master_data.dto.MarketDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

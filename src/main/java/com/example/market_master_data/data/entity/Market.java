@@ -1,4 +1,4 @@
-package com.example.market_master_data.data.entity.market;
+package com.example.market_master_data.data.entity;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
