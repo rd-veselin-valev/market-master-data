@@ -28,11 +28,8 @@ public class MarketServiceImpl implements MarketService {
 
     @Override
     public MarketDto getMarketByMarketId(UUID marketId) {
-        var market = marketRepository.findMarketByMarketId(marketId);
-
-        if (market == null) {
-            throw new EntityNotFoundException(ErrorMessages.MARKET_NOT_FOUND);
-        }
+        var market = marketRepository.findMarketByMarketId(marketId)
+                .orElseThrow(() -> new EntityNotFoundException(String.format(ErrorMessages.MARKET_NOT_FOUND, marketId)));
 
         return marketMapper.toMarketDto(market);
     }
